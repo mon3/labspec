@@ -4,8 +4,10 @@ import matplotlib
 import math
 import cmath
 
+
 def function(x):
 	return math.exp(-x*x)
+
 
 def momentum(m,n,delta_x):
 	if (m<=n/2):
@@ -19,6 +21,7 @@ f_n = []
 x_0=0.0
 
 for i in range(n):
+	print i
 	f_n.append(function(x_0+i*delta_x))
 
 f_m=np.fft.fft(f_n)
