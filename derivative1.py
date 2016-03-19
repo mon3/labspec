@@ -4,8 +4,8 @@ import pylab
 
 
 x0=-5
-delta_x=0.01
-n_x=1000
+delta_x=0.1
+n_x=100
 n=1
 x1 = numpy.arange(x0, x0+n_x*delta_x, delta_x)
 
