@@ -28,22 +28,22 @@ def main():
     density = [1] * (N_x*N_y*N_z)
     counter = 0
     N = 0
-    for i1 in range(N_x):
-        for j1 in range(N_y):
-            for k1 in range(N_z):
-                F = 3./(5.*A) * (mi0 - external_potential(i1, j1, k1, m, omega_x, omega_y, omega_z, N_x, N_y, N_z))
-                if F>0:
-                    density[k1+N_z*j1+N_y*N_z*i1] = math.sqrt(F**3)
-                else:
-                    density[k1+N_z*j1+N_y*N_z*i1] = 0
-                N += density[k1+N_z*j1+N_y*N_z*i1]
+    # for i1 in range(N_x):
+    #     for j1 in range(N_y):
+    #         for k1 in range(N_z):
+    #             F = 3./(5.*A) * (mi0 - external_potential(i1, j1, k1, m, omega_x, omega_y, omega_z, N_x, N_y, N_z))
+    #             if F>0:
+    #                 density[k1+N_z*j1+N_y*N_z*i1] = math.sqrt(F**3)
+    #             else:
+    #                 density[k1+N_z*j1+N_y*N_z*i1] = 0
+    #             N += density[k1+N_z*j1+N_y*N_z*i1]
     
     #for i2 in range(N_x):
       #  for j2 in range(N_y):
             #for k2 in range(N_z):
                # N += density[k2+N_z*j2+N_y*N_z*i2]
-    mi1 = mi0 - alfa*(N - N_0)
-
+    #mi1 = mi0 - alfa*(N - N_0)
+    mi1 = 55.
     while(abs(mi1-mi0) > epsilon):
         mi0 = mi1
         for i3 in range(N_x):
