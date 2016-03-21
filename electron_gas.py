@@ -27,7 +27,7 @@ def main():
     mi0 = 50.
     density = [1] * (N_x*N_y*N_z)
     counter = 0
-
+    N = 0
     for i1 in range(N_x):
         for j1 in range(N_y):
             for k1 in range(N_z):
@@ -36,12 +36,12 @@ def main():
                     density[k1+N_z*j1+N_y*N_z*i1] = math.sqrt(F**3)
                 else:
                     density[k1+N_z*j1+N_y*N_z*i1] = 0
-
-    N = 0
-    for i2 in range(N_x):
-        for j2 in range(N_y):
-            for k2 in range(N_z):
-                N += density[k2+N_z*j2+N_y*N_z*i2]
+                N += density[k1+N_z*j1+N_y*N_z*i1]
+    
+    #for i2 in range(N_x):
+      #  for j2 in range(N_y):
+            #for k2 in range(N_z):
+               # N += density[k2+N_z*j2+N_y*N_z*i2]
     mi1 = mi0 - alfa*(N - N_0)
 
     while(abs(mi1-mi0) > epsilon):
