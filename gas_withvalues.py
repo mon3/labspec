@@ -1,5 +1,4 @@
 import math
-import numpy as np
 
 m = 1.
 e = 1.
@@ -34,25 +33,17 @@ def main():
     x_data=[]
     y_data=[]
     z_data=[]
-    function_all=[]
-
-    for i1 in range(N_x):
-            for j1 in range(N_y):
-                for k1 in range(N_z):
-                    x_data.append(i1)
-                    y_data.append(j1)
-                    z_data.append(k1)
-
-
-
+    function=[]
 
     while(abs(mi1-mi0) > epsilon):
         mi0 = mi1
         N = 0
-        function =[]
         for i1 in range(N_x):
+            #x_data.append(i1)
             for j1 in range(N_y):
+               # y_data.append(j1)
                 for k1 in range(N_z):
+                   # z_data.append(k1)
                     F = 3./(5.*A) * (mi1 - external_potential(i1, j1, k1, m, omega_x, omega_y, omega_z, N_x, N_y, N_z))
                     if F>0:
                         density[k1+N_z*j1+N_y*N_z*i1] = math.sqrt(F**3)
@@ -61,8 +52,9 @@ def main():
                     dens = density[k1+N_z*j1+N_y*N_z*i1]
                     N +=dens
                     function.append(dens)
-                    
-        function_all.append(function)  
+                    x_data.append(i1)
+                    y_data.append(j1)
+                    z_data.append(k1)
 
 #zmodyfikowac tak,zeby zapisywalo tylko niezerowe density i odpowiednie dla niego wspolrzedne
 
@@ -75,21 +67,7 @@ def main():
     print N
     print mi1
 
-    #data_res = np.array([x_data,y_data,z_data,function])
-    X = np.array(x_data)
-    Y = np.array(y_data)
-    Z = np.array(z_data)
-
-    np.save('xdata.npy', X)
-    np.save('ydata.npy', Y)
-    np.save('zdata.npy', Z)
-    mat =np.array(function_all)
-   # print function
-    np.save('data.npy', mat)
-    #with open('data.txt') as f:
-        #for line in mat:
-            #np.savetxt(f, line, fmt='%.2f')
-    print mat.shape
+    print function
 
 if __name__ == "__main__":
     main()
