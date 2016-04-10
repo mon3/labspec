@@ -22,7 +22,7 @@ def p_m(m_x, n_x1, delta_x1):
     if (m_x <= (n_x1/2)):
         return (2*m.pi*m_x)/(n_x1*delta_x1)
     else:
-        return (2*m.pi*(m_x-n_x))/(n_x1*delta_x1)
+        return (2*m.pi*(m_x-n_x1))/(n_x1*delta_x1)
 
 
 func = []
@@ -33,7 +33,8 @@ func = numpy.fft.fft(func)
 
 func1 = []
 for j in range(n_x):
-    func1.append(func[j]*((p_m(j, n_x, delta_x)*1j)**n))
+    func1.append(func[j]*((2*m.pi*numpy.fft.fftfreq(n_x, delta_x)[j]*1j)**n))
+    print p_m(j, n_x, delta_x)
 
 func = numpy.fft.ifft(func1)
 pylab.plot(x1, func.real, '.')

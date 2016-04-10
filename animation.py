@@ -14,7 +14,7 @@ filepathz='zdata.npy'
 x = np.load(filepathx).reshape((100,100,100))
 y = np.load(filepathy).reshape((100,100,100))
 z = np.load(filepathz).reshape((100,100,100))
-densities = np.load(filepath).reshape((28,100,100,100))
+densities = np.load(filepath).reshape((1,128,128,128))
 #density=density.reshape((28,1000000))#.reshape((28,100,100,100))
 for density in densities:
 	maya.contour3d(x,y,z,density, transparent=True, opacity=0.5, contours=10)

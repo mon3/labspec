@@ -5,15 +5,15 @@ e = 1.
 omega_x = 1.
 omega_y = 1.
 omega_z = 1.
-N_x = 100
+N_x = 100 #128 wygodne dla transformat fouriera
 N_y = 100
 N_z = 100
-N_0 = 100000
+N_0 = 1000
 dx = 1
 dy = 1
 dz = 1
 ksi = 0.5
-alfa = 0.0001
+alfa = 0.005
 epsilon = 0.00001
 A = 1.
 
@@ -24,8 +24,8 @@ def external_potential(x, y, z, m, omegax, omegay, omegaz, Nx, Ny, Nz):
 
 
 def main():
-    mi0 = 50.
-    density = [1] * (N_x*N_y*N_z)
+    mi0 = 10.
+    density = [1.] * (N_x*N_y*N_z)
     counter = 0
     N = 0
     # for i1 in range(N_x):
@@ -43,7 +43,7 @@ def main():
             #for k2 in range(N_z):
                # N += density[k2+N_z*j2+N_y*N_z*i2]
     #mi1 = mi0 - alfa*(N - N_0)
-    mi1 = 55.
+    mi1 = 8.
     while(abs(mi1-mi0) > epsilon):
         mi0 = mi1
         N = 0
@@ -69,7 +69,7 @@ def main():
 
     print N
     print mi1
-
+    print density
 
 if __name__ == "__main__":
     main()
