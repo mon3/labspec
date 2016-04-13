@@ -18,11 +18,11 @@ dz = 1
 ksi = 0.5
 alfa = 1./N_0
 epsilon = 0.00001
-A = 1.
+A = 2.871
 
 
-def external_potential(x, y, z, m, omegax, omegay, omegaz, Nx, Ny, Nz):
-    return ( (m*omegax**2 * (x - Nx/2)**2)/2 + (m*omegay**2 * (y - Ny/2)**2)/2 + (m*omegaz**2 * (z - Nz/2)**2)/2)
+def external_potential(x, y, z, m1, omegax, omegay, omegaz, Nx, Ny, Nz):
+    return ( (m1*omegax**2 * (x - Nx/2)**2)/2 + (m1*omegay**2 * (y - Ny/2)**2)/2 + (m1*omegaz**2 * (z - Nz/2)**2)/2)
 
 
 def p_m(m_x, n_x1, delta_x1):
@@ -58,7 +58,7 @@ def density_f(density, mi1, beta):
         mi0 = mi1
         N = 0.
         integral = integral_rho(density0).real
-        anim.make_anim(integral, N_x, N_y, N_z)
+        #anim.make_anim(integral, N_x, N_y, N_z)
         for i1 in range(N_x):
             for j1 in range(N_y):
                 for k1 in range(N_z):
@@ -69,6 +69,7 @@ def density_f(density, mi1, beta):
                     else:
                         density[k1+N_z*j1+N_y*N_z*i1] = 0
                     N += density[k1+N_z*j1+N_y*N_z*i1]
+
 
 #zmodyfikowac tak,zeby zapisywalo tylko niezerowe density i odpowiednie dla niego wspolrzedne
 
@@ -89,7 +90,7 @@ def density_f(density, mi1, beta):
 
 def main():
     density = [1.] * (N_x*N_y*N_z)
-    mi1 = 4.6
+    mi1 = 7.66
     #density_f(density, mi1, 0)
     betas = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
     for beta in betas:
