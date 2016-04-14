@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import animation as ani
 from mpl_toolkits.mplot3d import Axes3D
-import mayavi.mlab as maya
+#import mayavi.mlab as maya
 # %matplotlib notebook
 # %matplotlib inline
 
